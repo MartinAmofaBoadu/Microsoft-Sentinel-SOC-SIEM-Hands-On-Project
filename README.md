@@ -115,7 +115,6 @@ graph TD
 
 ## Screenshots
 
-> These screenshots are real Microsoft Sentinel images from Microsoft documentation and are included as starter visuals. For maximum credibility, I would replace them with screenshots from my own Azure lab.
 
 ### Microsoft Sentinel Overview Dashboard
 
