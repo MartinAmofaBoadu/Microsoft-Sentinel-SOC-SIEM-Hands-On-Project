@@ -1,456 +1,477 @@
-[Microsoft-Sentinel-Complete-README.md](https://github.com/user-attachments/files/27020290/Microsoft-Sentinel-Complete-README.md)
+[Microsoft-Sentinel-Complete-README(2).md](https://github.com/user-attachments/files/27545720/Microsoft-Sentinel-Complete-README.2.md)
 # Microsoft Sentinel SOC Lab Portfolio Project
 
-![Platform](https://img.shields.io/badge/Platform-Microsoft%20Sentinel-0078D4?logo=microsoftazure&logoColor=white)
-![Focus](https://img.shields.io/badge/Focus-SIEM%20%2F%20SOAR-111827)
-![Skill](https://img.shields.io/badge/Skill-KQL-2563EB)
-![Skill](https://img.shields.io/badge/Skill-Incident%20Response-DC2626)
-![Skill](https://img.shields.io/badge/Skill-Detection%20Engineering-059669)
+![Microsoft Sentinel](https://img.shields.io/badge/Microsoft%20Sentinel-SOC%20Lab-blue)
+![SIEM](https://img.shields.io/badge/Focus-SIEM%20%26%20SOC%20Operations-darkblue)
+![KQL](https://img.shields.io/badge/Skill-KQL-purple)
+![Incident Response](https://img.shields.io/badge/Skill-Incident%20Triage-red)
+![SOAR](https://img.shields.io/badge/Skill-SOAR%20Playbooks-green)
+![Status](https://img.shields.io/badge/Project-Portfolio%20Lab-success)
+
+---
 
 ## Project Overview
 
-This repository is a hands-on **Microsoft Sentinel SOC project** designed to demonstrate practical security operations knowledge in a way that recruiters and hiring managers can understand quickly.
+This project is a hands-on Microsoft Sentinel SOC lab created to demonstrate practical security operations skills.
 
-The goal of this project is to show that I can work through the same flow a real analyst follows in a SIEM environment:
+The goal of this lab was to work through the same type of workflow a junior SOC analyst would follow in a SIEM environment: reviewing telemetry, writing KQL queries, investigating suspicious activity, using watchlists for context, reviewing incidents, and designing a response playbook.
 
-- deploy and understand the Sentinel environment,
-- connect relevant data sources,
-- validate telemetry ingestion,
-- write and tune KQL detections,
+This project uses simulated and sanitized lab data. It does not contain real company, client, or production security data.
+
+---
+
+## Why I Built This Project
+
+I built this project to strengthen my practical SOC analyst skills and show that I can do more than explain cybersecurity concepts in theory.
+
+Microsoft Sentinel is a cloud-native SIEM and SOAR platform used for security monitoring, detection, investigation, and response. Through this lab, I practiced how a SOC analyst can use Sentinel to:
+
+- collect and validate security logs,
+- search and analyze activity using KQL,
+- detect suspicious authentication behavior,
 - investigate incidents,
 - enrich detections with watchlists,
-- think through threat intelligence use cases,
-- and design automation with playbooks.
+- review security trends with workbooks,
+- and design basic response automation using playbooks.
 
-This project was inspired by a Microsoft Sentinel hands-on practice lab and expanded into a full portfolio case study so it reads like real SOC work rather than a short tutorial note.
-
----
-
-## Why This Project Matters
-
-A lot of entry-level cybersecurity candidates say they know Microsoft Sentinel, but fewer can actually show what they did inside it.
-
-This project helps prove that I understand:
-
-- how Sentinel fits into a SOC,
-- the difference between data onboarding and detection engineering,
-- how incidents are investigated,
-- how KQL is used for threat hunting,
-- how watchlists improve detection quality,
-- and how automation can support response.
-
-Instead of saying only **"I watched a Sentinel video"**, this repository shows a structured SOC workflow project with technical detail.
+This project helped me connect security monitoring, log analysis, identity security, incident response, and documentation into one practical SOC portfolio case study.
 
 ---
 
-## Core Skills Demonstrated
+## Lab Focus
 
-| Area | Demonstrated Capability |
+| Area | What I Practiced |
 |---|---|
-| SIEM Engineering | Workspace setup, Microsoft Sentinel onboarding, visibility validation |
-| Data Ingestion | Connecting log sources and checking health of telemetry |
-| Detection Engineering | Building and tuning KQL-based analytics logic |
-| Threat Hunting | Investigating suspicious behavior across log data |
-| Incident Response | Triage, evidence review, ownership, classification, documentation |
-| Enrichment | Watchlists and threat intelligence concepts |
-| SOAR | Playbook design with Logic Apps |
-| Security Reporting | Dashboards, workbooks, operational visibility |
-| Communication | GitHub documentation, case summaries, recruiter-ready writeups |
+| SIEM Operations | Microsoft Sentinel workspace, incidents, alerts, data connectors, and dashboards |
+| Log Analysis | Reviewing sign-in, audit, Azure Activity, and security event logs |
+| KQL | Writing queries for failed sign-ins, disabled accounts, suspicious IPs, and watchlist filtering |
+| Detection Engineering | Turning suspicious behavior into detection logic |
+| Incident Triage | Reviewing severity, users, IPs, entities, ownership, and investigation notes |
+| Threat Hunting | Searching for suspicious patterns before and beyond alerts |
+| Watchlists | Using trusted IPs, privileged users, and suspicious IPs for enrichment |
+| Workbooks | Creating visibility into SOC metrics and trends |
+| SOAR | Designing a Logic App playbook for analyst notification and response actions |
+| Documentation | Writing a clear GitHub case study that explains the full technical workflow |
 
 ---
 
-## Tools and Technologies
+## Tools and Technologies Used
 
-- **Microsoft Sentinel**
-- **Azure Log Analytics Workspace**
-- **Kusto Query Language (KQL)**
-- **Azure Activity Logs**
-- **SigninLogs / AuditLogs / SecurityEvent**
-- **Watchlists**
-- **Threat Intelligence**
-- **Analytics Rules**
-- **Incidents**
-- **Workbooks**
-- **Azure Logic Apps / Playbooks**
+- Microsoft Sentinel
+- Azure Log Analytics Workspace
+- Kusto Query Language
+- Microsoft Entra ID sign-in logs
+- Azure Activity logs
+- Audit logs
+- Security events
+- Microsoft Sentinel analytics rules
+- Microsoft Sentinel incidents
+- Watchlists
+- Workbooks
+- Azure Logic Apps
+- Microsoft Defender response concepts
+- MITRE ATT&CK mapping
 
 ---
 
 ## Project Objectives
 
-This project was built to demonstrate the following:
+The objectives of this lab were to:
 
-1. Enable a Microsoft Sentinel lab environment.
-2. Connect log sources and confirm telemetry ingestion.
-3. Create and test useful KQL detections.
-4. Understand how analytics rules generate incidents.
-5. Practice alert triage and investigation workflow.
-6. Use watchlists to support tuning and enrichment.
-7. Apply threat hunting logic to suspicious events.
-8. Document a realistic automation / containment workflow.
-9. Present the project in a GitHub-friendly format for recruiters.
-
----
-
-## Architecture Overview
-
-```mermaid
-graph TD
-    A[Azure Subscription] --> B[Log Analytics Workspace]
-    B --> C[Microsoft Sentinel]
-    D[Azure Activity Logs] --> C
-    E[Security Events / Sign-In Logs / Audit Logs] --> C
-    F[Threat Intelligence] --> C
-    G[Watchlists] --> C
-    C --> H[Analytics Rules]
-    H --> I[Incidents]
-    I --> J[Investigation & Triage]
-    C --> K[Hunting Queries]
-    C --> L[Workbooks]
-    C --> M[Automation Rules]
-    M --> N[Logic App Playbooks]
-    N --> O[Notification / Approval / User Disable / IP Block]
-```
+1. Set up and understand a Microsoft Sentinel lab environment.
+2. Review how data connectors support SOC visibility.
+3. Validate telemetry using KQL.
+4. Write KQL queries for suspicious authentication activity.
+5. Understand how analytics rules can generate incidents.
+6. Practice an incident triage workflow.
+7. Use watchlists to support detection tuning and enrichment.
+8. Build a workbook-style reporting view.
+9. Design a playbook workflow for response automation.
+10. Document the project clearly for SOC analyst job applications.
 
 ---
 
-## Screenshots
+# Lab Screenshots
 
-
-### Microsoft Sentinel Overview Dashboard
-
-<p align="center">
-  <img src="assets/images/dashboard.png" alt="Microsoft Sentinel Overview Dashboard" width="900">
-</p>
-
-### Incident Queue / Triage View
-
-<p align="center">
-  <img src="assets/images/incident-grid.png" alt="Microsoft Sentinel Incident Queue" width="900">
-</p>
-
-### Workbook / Reporting View
-
-<p align="center">
-  <img src="assets/images/workbook-graph.png" alt="Microsoft Sentinel Workbook" width="900">
-</p>
-
-### Logic App Playbook Flow
-
-<p align="center">
-  <img src="assets/images/logic-app.png" alt="Microsoft Sentinel Playbook Flow" width="520">
-</p>
+The screenshots below represent the lab workflow using simulated or sanitized data.
 
 ---
 
-## End-to-End Lab Walkthrough
+## Microsoft Sentinel Overview Dashboard
 
-## Phase 1: Workspace Setup and Sentinel Enablement
+![Microsoft Sentinel Overview Dashboard](assets/images/sentinel-overview.png)
 
-The first step in the lab is creating or selecting a **Log Analytics workspace** and enabling **Microsoft Sentinel** on top of it.
+This view gives a high-level overview of the Sentinel workspace, including open incidents, active alerts, impacted entities, connector health, analytics rules, recent incidents, and MITRE ATT&CK coverage.
 
-This matters because Sentinel relies on the workspace for:
+---
 
-- log storage,
-- query execution,
-- analytics rules,
-- investigations,
-- and workbooks.
+## Incident Queue / Triage View
 
-### What I learned in this phase
+![Microsoft Sentinel Incident Queue](assets/images/incident-queue.png)
 
-- Microsoft Sentinel is not just a dashboard. It depends on Azure resources and proper setup.
-- The workspace is the core data layer behind detections and investigations.
-- Before building detections, the environment itself must be working correctly.
+This view shows how incidents can be reviewed by severity, status, owner, product, tactic, last updated time, and incident number. The side panel supports investigation by showing the incident summary, affected entities, notes, and recommended next steps.
 
-### What I would capture as evidence in a live lab
+---
 
-- resource group creation,
-- workspace deployment,
-- Sentinel onboarding status,
-- subscription and region used,
-- portal screenshots of the enabled environment.
+## Workbook / Reporting View
+
+![Microsoft Sentinel Workbook](assets/images/workbook-reporting.png)
+
+This workbook view shows SOC reporting metrics such as total incidents, active alerts, failed sign-ins, disabled account attempts, connector health, incident severity, MITRE ATT&CK coverage, and recent trends.
+
+---
+
+## Logic App Playbook Flow
+
+![Microsoft Sentinel Playbook Flow](assets/images/playbook-flow.png)
+
+This playbook represents a response workflow for suspicious sign-in activity. It includes incident trigger, entity parsing, analyst notification, approval, containment action, and incident update.
+
+---
+
+# End-to-End Lab Walkthrough
+
+---
+
+## Phase 1: Microsoft Sentinel Workspace Setup
+
+The first step was to create or select a Log Analytics workspace and enable Microsoft Sentinel on top of it.
+
+This is important because Sentinel depends on the workspace for log storage, query execution, analytics rules, investigations, and workbooks.
+
+### What I learned
+
+Microsoft Sentinel is not just a dashboard. It relies on Azure resources, proper configuration, and reliable data flow. Before building detections or investigating incidents, the workspace needs to be correctly set up and ready to receive logs.
+
+### Evidence captured
+
+- Sentinel workspace overview
+- Resource group and workspace structure
+- Microsoft Sentinel enabled on the workspace
+- Portal screenshots showing the lab environment
 
 ---
 
 ## Phase 2: Data Connectors and Telemetry Ingestion
 
-After Sentinel is enabled, the next important step is connecting data sources.
+After enabling Sentinel, the next step was to review and understand data connectors.
 
-A SIEM is only as useful as the quality and relevance of the telemetry it receives.
+A SIEM is only useful when it receives the right data. Without good telemetry, alerts and detections may either miss important activity or create too much noise.
 
 ### Data source mindset
 
-When I connect a source, I think about:
+When reviewing a data connector, I considered:
 
-- what table it populates,
-- what detections it enables,
-- what permissions or prerequisites are required,
-- how much signal vs noise it will create,
-- and whether the data is actually useful for security investigation.
+- what log table it populates,
+- what security scenario it supports,
+- what permissions are required,
+- whether the data is useful for investigation,
+- and whether it may create too many false positives.
 
-### Example connector types explored
+### Example data sources reviewed
 
-- Azure Activity
-- Sign-in and identity logs
+- Microsoft Entra ID sign-in logs
 - Audit logs
-- Security events
+- Azure Activity logs
+- Windows security events
 - Microsoft security alerts
-- Threat intelligence sources
+- Threat intelligence indicators
 
-### What I validate after onboarding data
+### What I would validate after connecting data
 
-- the connector shows as connected or healthy,
-- logs are arriving in the expected tables,
-- timestamps are recent,
-- and I can query the data successfully.
+- Connector status is healthy.
+- Logs are arriving in the expected table.
+- Events have recent timestamps.
+- KQL queries return useful results.
+- The data can support detection and investigation.
 
-### What this shows a recruiter
-
-It shows I understand that data ingestion comes before detection engineering, and that connector quality directly affects SOC visibility.
+This phase showed me that data onboarding comes before detection engineering. A good detection depends on good data.
 
 ---
 
-## Phase 3: Analytics Rules and Detection Engineering
+## Phase 3: KQL Detection Logic
 
-This is where Sentinel becomes operational. Raw logs become actionable detections.
+KQL is one of the most important skills in Microsoft Sentinel. It allows analysts to search logs, investigate suspicious activity, and create detection logic.
+
+In this phase, I wrote and reviewed KQL queries focused on authentication and identity-related activity.
 
 ### My detection workflow
 
-1. Identify suspicious behavior.
-2. Choose the correct table.
+1. Identify the suspicious behavior.
+2. Select the correct log table.
 3. Write the KQL query.
 4. Test the query in Logs.
-5. Convert it to a scheduled analytics rule.
-6. Set severity, frequency, and grouping.
-7. Tune out known noise.
+5. Review the output.
+6. Think about possible false positives.
+7. Convert useful logic into an analytics rule.
+8. Tune the rule using thresholds, grouping, and watchlists.
 
-### Detection ideas covered in this project
+### Detection scenarios covered
 
-- repeated failed sign-ins from one IP,
-- disabled account sign-in attempts,
-- new user creation followed by role assignment,
-- events that do not match a trusted allow-list.
+- repeated failed sign-ins from one source IP,
+- disabled accounts still receiving sign-in attempts,
+- new user creation followed by role assignment activity,
+- suspicious sign-ins from IPs not found in an allow-list.
+
+This helped me think more like a SOC analyst and not just someone clicking through built-in dashboards.
+
+---
+
+# KQL Queries Included
+
+---
+
+## 1. Failed Sign-ins by Source IP
+
+```kql
+SigninLogs
+| where TimeGenerated > ago(24h)
+| where ResultType != 0
+| where isnotempty(IPAddress)
+| summarize 
+    FailedAttempts = count(),
+    FirstSeen = min(TimeGenerated),
+    LastSeen = max(TimeGenerated),
+    TargetedUsers = make_set(UserPrincipalName, 20),
+    Applications = make_set(AppDisplayName, 20),
+    Locations = make_set(Location, 20)
+    by IPAddress
+| where FailedAttempts >= 10
+| order by FailedAttempts desc
+```
+
+### Why I included this query
+
+This query helps identify repeated failed sign-ins from the same source IP. It can support investigation of brute force attempts, password spraying, misconfigured applications, or suspicious authentication behavior.
+
+---
+
+## 2. Disabled Accounts Receiving Sign-in Attempts
+
+```kql
+SigninLogs
+| where TimeGenerated > ago(7d)
+| where ResultType == 50057
+   or tostring(Status.failureReason) has "disabled"
+| summarize 
+    Attempts = count(),
+    FirstSeen = min(TimeGenerated),
+    LastSeen = max(TimeGenerated),
+    Applications = make_set(AppDisplayName, 20),
+    Locations = make_set(Location, 20)
+    by UserPrincipalName, IPAddress
+| order by Attempts desc
+```
+
+### Why I included this query
+
+Disabled accounts should not normally be active authentication targets. Repeated attempts may indicate stale credentials, legacy automation, password spraying, or an attacker trying to reuse old account information.
+
+---
+
+## 3. New User Created Followed by Role Assignment Activity
+
+```kql
+let NewUsers =
+AuditLogs
+| where TimeGenerated > ago(7d)
+| where OperationName has "Add user"
+| extend NewUser = tostring(TargetResources[0].userPrincipalName)
+| project NewUser, UserCreatedTime = TimeGenerated, CreatedBy = tostring(InitiatedBy.user.userPrincipalName);
+
+let RoleAssignments =
+AzureActivity
+| where TimeGenerated > ago(7d)
+| where OperationNameValue =~ "MICROSOFT.AUTHORIZATION/ROLEASSIGNMENTS/WRITE"
+   or OperationName has "role assignment"
+| project RoleAssignmentTime = TimeGenerated, Caller, OperationName, ResourceGroup, SubscriptionId;
+
+NewUsers
+| join kind=inner RoleAssignments on $left.CreatedBy == $right.Caller
+| where RoleAssignmentTime between (UserCreatedTime .. UserCreatedTime + 1d)
+| project UserCreatedTime, RoleAssignmentTime, NewUser, CreatedBy, OperationName, ResourceGroup, SubscriptionId
+| order by RoleAssignmentTime desc
+```
+
+### Why I included this query
+
+This query looks for new account creation followed by role assignment activity within a short time window. This can help identify suspicious provisioning, risky privilege assignment, or possible privilege escalation activity.
+
+---
+
+## 4. Watchlist Allow-list Example
+
+```kql
+let AllowedIPs =
+    _GetWatchlist('trusted-ip-allowlist')
+    | project AllowedIP = SearchKey;
+
+SigninLogs
+| where TimeGenerated > ago(24h)
+| where isnotempty(IPAddress)
+| join kind=leftanti AllowedIPs on $left.IPAddress == $right.AllowedIP
+| summarize 
+    Events = count(),
+    Users = make_set(UserPrincipalName, 20),
+    Applications = make_set(AppDisplayName, 20)
+    by IPAddress
+| order by Events desc
+```
+
+### Why I included this query
+
+This query shows how a watchlist can be used to separate trusted IP addresses from unknown or suspicious sources. This is useful for reducing false positives while still keeping visibility into unusual activity.
+
+---
+
+# Phase 4: Incident Triage and Investigation
+
+Once an alert becomes an incident, the work changes from detection to investigation.
+
+In this phase, I focused on how a SOC analyst would review an incident and decide what should happen next.
+
+### Questions I asked during triage
+
+- What rule created the incident?
+- Is the severity correct?
+- Which user, IP address, host, or application is involved?
+- Is the activity repeated or isolated?
+- Is this likely a true positive, false positive, or unclear?
+- Is there enough evidence to escalate?
+- What notes should be left for the next analyst?
+
+### Typical Sentinel incident actions
+
+- assign an owner,
+- update the incident status,
+- review alerts and entities,
+- add investigation comments,
+- apply tags,
+- classify the incident,
+- escalate or close with clear notes.
 
 ### Why this matters
 
-This shows I can think like a junior detection engineer instead of only clicking through built-in content.
+Incident documentation is a key part of SOC work. A good analyst should leave enough information for another team member to understand what was reviewed, what was found, and why a decision was made.
 
 ---
 
-## Phase 4: Incident Triage and Investigation
+# Phase 5: Threat Hunting with KQL
 
-Once alerts become incidents, the work shifts into case handling.
+Threat hunting means searching for suspicious activity before relying only on alerts.
 
-### Questions I ask during triage
+In this phase, I used KQL to think through possible suspicious behavior and search across relevant logs.
 
-- What rule created the incident?
-- Is the severity appropriate?
-- What users, IPs, or hosts are involved?
-- Does the evidence suggest real malicious activity?
-- Is the case isolated, duplicated, or part of a wider pattern?
+### Hunting approach used
 
-### Typical analyst actions in Sentinel
+- Start with an entity such as a user, IP address, or host.
+- Expand the time range.
+- Look for repeated patterns.
+- Compare the activity with expected behavior.
+- Check whether the same source appears in other events.
+- Document the findings clearly.
 
-- assign ownership,
-- update status,
-- add comments,
-- add tags,
-- review evidence and entities,
-- classify the incident,
-- escalate or close with notes.
+### Example hunting questions
 
-### Why incident documentation matters
+- Is one IP address targeting many users?
+- Are disabled accounts still receiving sign-in attempts?
+- Was a new account created before privileged activity?
+- Are sign-ins coming from unusual locations?
+- Is the source IP trusted or unknown?
+- Is the activity repeated over time?
 
-Clear notes are part of real SOC work. Another analyst should be able to understand why the case was escalated, contained, or closed.
-
----
-
-## Phase 5: Threat Hunting with KQL
-
-Threat hunting goes beyond waiting for alerts. It involves searching proactively for suspicious behavior.
-
-### Hunting mindset used in this project
-
-- pivot from entities discovered in incidents,
-- widen time windows to look for related activity,
-- compare behavior across users and hosts,
-- look for patterns that may not yet have generated alerts,
-- and validate whether one alert is part of a broader compromise.
-
-### Example hunting hypotheses
-
-- a single source IP may be performing password spraying,
-- disabled accounts may still be targeted by automation or attackers,
-- newly created accounts may be escalated too quickly,
-- trusted sources should be separated from suspicious ones.
+Threat hunting helped me think beyond individual alerts and look for wider patterns.
 
 ---
 
-## Phase 6: Watchlists for Enrichment and Tuning
+# Phase 6: Watchlists for Enrichment and Tuning
 
-Watchlists add context to detections and investigations.
+Watchlists were included to show how SOC teams can add context to detections and investigations.
 
 ### Example watchlist use cases
 
 - privileged users,
-- sensitive systems,
-- trusted scanner IPs,
+- trusted IP addresses,
 - approved VPN egress IPs,
-- known suspicious indicators.
+- sensitive systems,
+- known suspicious IPs,
+- service accounts.
 
 ### Why watchlists matter
 
-A good SOC needs to reduce false positives without losing visibility. Watchlists help distinguish normal business activity from high-risk activity.
+Not every event should be treated the same way. Context matters.
+
+For example, a failed sign-in from a known internal VPN address may be less suspicious than the same activity from an unknown external IP. Watchlists help reduce noise and improve investigation quality.
 
 ---
 
-## Phase 7: Threat Intelligence Concepts
+# Phase 7: Threat Intelligence Concepts
 
-Threat intelligence can be used to enrich logs and prioritize suspicious events.
+Threat intelligence can help enrich investigations when an IP address, domain, file hash, or other indicator is known to be suspicious.
 
-### How I think about TI in Sentinel
+In this project, I treated threat intelligence as supporting context, not automatic proof of compromise.
 
-- correlate observed IPs or domains with known indicators,
-- use TI hits to raise analyst priority,
-- combine TI with investigation context,
-- and avoid treating all indicator matches as automatically malicious.
+### My approach to threat intelligence
 
----
-
-## Phase 8: Automation and Playbooks
-
-The final stage is response maturity.
-
-### Playbook design thinking
-
-A good playbook should:
-
-- trigger on meaningful conditions,
-- notify the right people,
-- leave an audit trail,
-- support approvals for risky actions,
-- and only automate containment where it is safe to do so.
-
-### Example response flow
-
-- Sentinel incident created,
-- analyst or SOC channel notified,
-- approval requested,
-- user disabled or IP blocked,
-- incident updated with response notes.
-
-This demonstrates understanding of **SIEM + SOAR**, not just alert viewing.
+- Use indicators to support investigation.
+- Confirm whether the activity matches the environment.
+- Avoid assuming every indicator match is malicious.
+- Combine threat intelligence with log evidence.
+- Escalate when the activity is repeated, high-confidence, or linked to other suspicious behavior.
 
 ---
 
-## KQL Queries Included in This Project
+# Phase 8: Workbook Reporting
 
-## 1) Failed Logons by Source IP
+Workbooks are useful because SOC teams need visibility into security activity, not only individual alerts.
 
-```kusto
-// Failed logons by source IP
-// Useful for spotting brute force or password spray behavior.
-SecurityEvent
-| where TimeGenerated > ago(24h)
-| where EventID == 4625
-| extend SourceIp = tostring(IpAddress)
-| extend Account = tostring(TargetUserName)
-| summarize FailedAttempts=count(),
-            FirstSeen=min(TimeGenerated),
-            LastSeen=max(TimeGenerated),
-            TargetedAccounts=make_set(Account, 20),
-            Hosts=make_set(Computer, 20)
-    by SourceIp
-| where FailedAttempts >= 10
-| where isnotempty(SourceIp)
-| order by FailedAttempts desc
-```
+The workbook view in this project focused on:
 
-### Why I included it
+- total incidents,
+- active alerts,
+- failed sign-ins,
+- disabled account attempts,
+- analytics rule status,
+- connector health,
+- incident severity,
+- MITRE ATT&CK coverage,
+- recent incident trends.
 
-This query helps detect password spraying, brute force attempts, or repeated authentication failures coming from a single source.
+### Why this matters
+
+SOC reporting helps analysts and managers understand workload, risk areas, noisy detections, and the overall health of monitoring.
 
 ---
 
-## 2) New User Followed by Role Assignment
+# Phase 9: Logic App Playbook Design
 
-```kusto
-// New user followed by role assignment within 24 hours
-// Useful for spotting suspicious privilege escalation after account creation.
-AuditLogs
-| where TimeGenerated > ago(7d)
-| where OperationName == "Add user"
-| project AddedTime = TimeGenerated,
-          UserPrincipalName = tostring(TargetResources[0].userPrincipalName)
-| join kind=inner (
-    AzureActivity
-    | where TimeGenerated > ago(7d)
-    | where OperationNameValue =~ "MICROSOFT.AUTHORIZATION/ROLEASSIGNMENTS/WRITE"
-       or OperationName =~ "Create role assignment"
-    | project RoleAssignmentTime = TimeGenerated,
-              Caller,
-              OperationName,
-              ResourceGroup,
-              SubscriptionId
-) on $left.UserPrincipalName == $right.Caller
-| where RoleAssignmentTime between (AddedTime .. AddedTime + 1d)
-| project AddedTime, RoleAssignmentTime, UserPrincipalName, OperationName, ResourceGroup, SubscriptionId
-| order by RoleAssignmentTime desc
-```
+The final part of the project was designing a Sentinel playbook workflow using Azure Logic Apps.
 
-### Why I included it
+The playbook was designed for suspicious sign-in activity and includes analyst approval before containment actions. This is important because fully automated containment can create business risk if the alert is a false positive.
 
-This helps identify suspicious identity provisioning or fast privilege escalation after account creation.
+### Example playbook flow
+
+1. A Sentinel incident is created or updated.
+2. The playbook parses the incident entities.
+3. A SOC analyst or Teams channel is notified.
+4. Analyst approval is requested.
+5. If approved:
+   - disable the user account,
+   - submit or block the suspicious IP where supported,
+   - update the incident with response notes.
+6. If not approved:
+   - add a comment explaining that containment was not approved.
+7. Update the incident status, comments, and tags.
+
+### Why this matters
+
+This demonstrates the connection between SIEM and SOAR. Automation should support analysts, reduce repetitive work, and leave a clear audit trail.
 
 ---
 
-## 3) Disabled Accounts Still Receiving Sign-In Attempts
-
-```kusto
-// Sign-in attempts against disabled accounts
-// Useful for investigating stale credentials, attacker re-use, or noisy automation.
-SigninLogs
-| where TimeGenerated > ago(7d)
-| where ResultDescription has_any ("account is disabled", "disabled")
-    or Status has_any ("account is disabled", "disabled")
-| summarize Attempts=count(),
-            FirstSeen=min(TimeGenerated),
-            LastSeen=max(TimeGenerated),
-            Applications=make_set(AppDisplayName, 20),
-            Locations=make_set(Location, 20)
-    by IPAddress, UserPrincipalName
-| order by Attempts desc
-```
-
-### Why I included it
-
-Disabled accounts should not normally be active authentication targets. This can reveal attacker reuse of old credentials or broken internal automation.
+# Sample Watchlists
 
 ---
-
-## 4) Watchlist Allow-List Example
-
-```kusto
-// Watchlist allow-list example
-// Replace 'trusted-ip-allowlist' with your actual watchlist alias.
-let AllowedIPs =
-    _GetWatchlist('trusted-ip-allowlist')
-    | project SearchKey;
-SigninLogs
-| where TimeGenerated > ago(24h)
-| where isnotempty(IPAddress)
-| join kind=leftanti AllowedIPs on $left.IPAddress == $right.SearchKey
-| summarize FailedOrRiskyEvents=count() by IPAddress, UserPrincipalName, AppDisplayName
-| order by FailedOrRiskyEvents desc
-```
-
-### Why I included it
-
-This shows how watchlists can be used to reduce alert fatigue while preserving visibility into untrusted sources.
-
----
-
-## Sample Watchlists
 
 ## High-Risk IP Watchlist
 
@@ -460,6 +481,8 @@ SearchKey,Description,Owner,Priority
 45.95.147.34,Suspicious authentication source sample,SOC,High
 103.86.99.12,Unapproved external address sample,SOC,Medium
 ```
+
+---
 
 ## Privileged Users Watchlist
 
@@ -472,167 +495,208 @@ azure.owner@contoso.com,Azure Subscription Owner,Cloud,High
 
 ---
 
-## Sample Incident Summary
-
-```markdown
 # Sample Incident Summary
 
 ## Incident Title
-Suspicious Sign-In Attempts Against Disabled Accounts
+
+Suspicious Sign-in Attempts Against Disabled Accounts
 
 ## Severity
+
 Medium
 
 ## Summary
-Multiple authentication attempts were observed against one or more disabled accounts. The pattern may indicate stale credential use, attacker knowledge of historic identities, or noisy automated processes attempting to authenticate with invalid account states.
 
-## Initial Evidence Reviewed
-- sign-in failure descriptions
-- source IP addresses
-- affected user accounts
-- time window and repetition pattern
-- related applications involved in the sign-in attempts
+Multiple sign-in attempts were detected against disabled user accounts. This may indicate stale credentials, legacy automation, password spraying, or an attacker attempting to reuse old account information.
+
+## Evidence Reviewed
+
+- affected user accounts,
+- source IP addresses,
+- sign-in failure reason,
+- time window of activity,
+- applications involved,
+- number of attempts,
+- whether the source was trusted or unknown.
 
 ## Analyst Assessment
-The activity is suspicious because disabled accounts should not be valid authentication targets during normal operations. Repeated attempts warrant validation of the source system or user behavior behind the traffic.
 
-## Recommended Next Actions
-1. Validate whether the source IP belongs to a trusted internal process.
-2. Review whether the affected accounts are tied to decommissioned services.
-3. Check for additional sign-in or enumeration activity from the same source.
-4. Escalate if the source is external, repeated, or associated with other authentication anomalies.
+The activity is suspicious because disabled accounts should not normally receive active sign-in attempts. Repeated attempts from the same source require further review to confirm whether the activity is caused by a misconfigured internal process or external malicious behavior.
+
+## Recommended Next Steps
+
+1. Confirm whether the source IP is trusted.
+2. Check if the affected accounts are linked to old services or automation.
+3. Review additional sign-in activity from the same IP address.
+4. Check whether other users were targeted.
+5. Escalate if the source is external, repeated, or linked to other suspicious activity.
 
 ## Containment Considerations
-- block or monitor the source IP if malicious intent is confirmed,
-- notify identity administrators if an internal process is misconfigured,
-- tune the detection only after root cause is understood.
+
+- block or monitor the source IP if confirmed malicious,
+- notify identity administrators if legacy automation is involved,
+- review account lifecycle controls,
+- tune the detection only after the root cause is understood.
 
 ## Closing Note Example
-Incident reviewed and documented. Further validation required to determine whether the source is malicious or a legacy internal process using stale credentials.
-```
+
+Incident reviewed and documented. Sign-in attempts were observed against disabled accounts. Further validation is required to confirm whether the source is malicious or linked to a legacy internal process.
 
 ---
 
-## Detection Philosophy
+# Detection Philosophy
 
-I approached this project as both a **Microsoft Sentinel learning lab** and a **SOC portfolio project**.
+The goal of this project was not to create many noisy alerts.
 
-The goal was not to generate a huge number of noisy detections. The goal was to demonstrate that I can:
+The goal was to show that I can:
 
-- translate a suspicious behavior into a query,
-- think through why the behavior matters,
-- understand false positives,
+- translate suspicious behavior into a query,
+- understand why the behavior matters,
+- review possible false positives,
 - investigate the output,
-- and document what should happen next.
+- document the case,
+- and think through the correct next action.
+
+This is the type of thinking I would apply as a junior SOC analyst.
 
 ---
 
-## Incident Handling Mindset
+# Incident Handling Mindset
 
-When I review an incident, I focus on:
+When reviewing an incident, I focus on:
 
-1. what triggered it,
-2. how severe it appears,
-3. which entity matters most,
-4. whether the evidence supports escalation,
-5. and what containment action should be considered.
+- what triggered the alert,
+- what evidence supports the severity,
+- which entity matters most,
+- whether the activity is normal or suspicious,
+- whether the case should be escalated,
+- and what should be written in the investigation notes.
 
-This mirrors the basic workflow of a SOC analyst using Microsoft Sentinel in a real environment.
-
----
-
-## MITRE ATT&CK Mindset
-
-I tried to think in terms of attacker behavior rather than just raw events.
-
-Examples of ATT&CK-style reasoning relevant to this project include:
-
-- **Credential Access** through repeated failed sign-ins,
-- **Privilege Escalation** through rapid role assignment after user creation,
-- **Persistence** through suspicious account provisioning,
-- **Discovery** through suspicious logon behavior and repeated probing,
-- **Defense Evasion** where approved sources must be separated from suspicious ones.
+Clear documentation is important because SOC work is team-based. Another analyst should be able to read the notes and understand the decision.
 
 ---
 
-## Recruiter Value
+# MITRE ATT&CK Mapping
 
-This project helps demonstrate that I can:
+This project includes examples that can be mapped to attacker behavior.
 
-- explain what Microsoft Sentinel is,
-- onboard and validate data sources,
-- write and tune KQL,
-- create useful detection logic,
-- investigate incidents with analyst thinking,
-- document case notes clearly,
-- and understand the connection between SIEM and SOAR.
+| Activity | Possible MITRE ATT&CK Area |
+|---|---|
+| Repeated failed sign-ins | Credential Access |
+| Password spraying patterns | Credential Access |
+| Suspicious sign-in locations | Initial Access |
+| New account followed by role activity | Privilege Escalation |
+| Suspicious account creation | Persistence |
+| Unusual access patterns | Discovery |
+| Allow-list comparison | Detection tuning / defense awareness |
 
-This makes the project stronger than a basic note saying only that I used Sentinel once.
-
----
-
-## Resume Bullets
-
-- Built and documented a hands-on Microsoft Sentinel SOC lab covering workspace onboarding, data connectors, KQL detections, threat hunting, incident triage, watchlists, threat intelligence, workbooks, and playbook design.
-- Created KQL queries to detect suspicious authentication activity, disabled-account sign-ins, and identity-to-privilege escalation patterns in Microsoft Sentinel.
-- Practiced Microsoft Sentinel incident handling by reviewing severity, evidence, entities, ownership, classification, and case documentation.
-- Used watchlist and tuning concepts to separate trusted activity from suspicious behavior and reduce alert noise.
-- Designed a Microsoft Sentinel SOAR workflow using Azure Logic Apps for analyst notification, approval-based containment, user disabling, and IP blocking.
+The purpose of this mapping is to think beyond raw logs and understand what the activity may mean from an attacker behavior perspective.
 
 ---
 
-## Interview Talking Points
+# What I Learned
 
-### What did you actually do in Microsoft Sentinel?
-I set up the lab environment, reviewed data connectors, used KQL for detections and hunting, investigated the type of incidents Sentinel can generate, and documented how a playbook-based response would work.
+This project helped me understand that Microsoft Sentinel is not only about viewing alerts. A SOC analyst needs to understand the full process:
 
-### What part was most valuable?
-Writing and understanding the KQL was the most valuable part because it forced me to think about attacker behavior, alert quality, and false-positive reduction.
+- where the data comes from,
+- how to query it,
+- how to detect suspicious behavior,
+- how to review incidents,
+- how to reduce false positives,
+- how to document findings,
+- and how automation can support response.
 
-### How did you show incident handling?
-I documented ownership, severity review, evidence analysis, classification, and the type of notes that would be left for escalation or closure.
-
-### Why include playbooks and workbooks?
-Because security operations is more than looking at alerts. It also includes reporting, visibility, communication, and repeatable response processes.
-
----
-
-## How I Would Improve This Project Further
-
-To make this project even stronger over time, I would:
-
-1. replace the starter screenshots with images from my own Azure tenant,
-2. export real custom analytics rules from the lab,
-3. add more KQL hunts and tuning examples,
-4. document one real false positive and how I tuned it,
-5. add a short screen recording showing a rule firing and an incident opening,
-6. build a Defender portal version as Microsoft continues the Sentinel transition.
+The most valuable part of the lab was working with KQL and thinking through how a detection becomes an investigation.
 
 ---
 
-## Repository Structure
+# Recruiter Summary
+
+This project demonstrates my practical understanding of Microsoft Sentinel and SOC workflows.
+
+It shows that I can:
+
+- explain how Microsoft Sentinel supports security operations,
+- understand the role of data connectors,
+- write KQL queries for investigation and detection,
+- review and document incidents,
+- use watchlists for context and tuning,
+- understand workbook reporting,
+- and design a basic playbook for response automation.
+
+This project supports my interest in SOC Analyst, Cybersecurity Analyst, IT Security Specialist, and Security Operations roles.
+
+---
+
+# Resume Bullets
+
+- Built and documented a Microsoft Sentinel SOC home lab covering workspace setup, data connectors, KQL detections, incident triage, watchlists, workbooks, and playbook design.
+- Created KQL queries to investigate suspicious authentication activity, disabled-account sign-in attempts, failed sign-in patterns, and identity-related privilege activity.
+- Practiced Microsoft Sentinel incident handling by reviewing severity, entities, ownership, evidence, status, classification, and analyst notes.
+- Used watchlist concepts to enrich detections, separate trusted activity from suspicious sources, and reduce alert noise.
+- Designed a Sentinel playbook workflow using Azure Logic Apps for SOC notification, analyst approval, containment steps, and incident updates.
+
+---
+
+# Interview Talking Points
+
+## What did you build?
+
+I built a Microsoft Sentinel SOC lab to practice how a security analyst works with alerts, incidents, KQL queries, watchlists, workbooks, and response playbooks.
+
+## What was the most important part of the project?
+
+The most valuable part was writing and understanding the KQL queries because it helped me think about suspicious behavior, false positives, and how alerts should be investigated.
+
+## How did you practice incident handling?
+
+I reviewed sample incidents by looking at severity, affected users, IP addresses, status, ownership, related entities, evidence, and the type of notes an analyst should leave before escalation or closure.
+
+## Why did you include watchlists?
+
+I included watchlists because real SOC teams need context. A watchlist can help separate trusted IPs, privileged users, or known systems from activity that needs more attention.
+
+## Why did you include a playbook?
+
+I included a playbook to show how Sentinel can support response automation. The design uses analyst approval before containment, which is safer than fully automatic action.
+
+---
+
+# Future Improvements
+
+To improve this project further, I plan to:
+
+- add exported analytics rule templates,
+- include more KQL hunting queries,
+- document one false positive and how it was tuned,
+- add a short incident investigation report,
+- include a screen recording of a rule generating an incident,
+- expand the lab with Microsoft Defender XDR integration,
+- and create a small detection-to-response case study.
+
+---
+
+# Repository Structure
 
 ```text
-microsoft-sentinel-portfolio-project/
+microsoft-sentinel-soc-lab/
 ├── README.md
 ├── assets/
 │   └── images/
-│       ├── dashboard.png
-│       ├── incident-grid.png
-│       ├── incidents.png
-│       ├── logic-app.png
-│       └── workbook-graph.png
+│       ├── sentinel-overview.png
+│       ├── incident-queue.png
+│       ├── workbook-reporting.png
+│       └── playbook-flow.png
 ├── docs/
-│   ├── 01_lab_walkthrough.md
-│   ├── 02_detection_and_hunting.md
-│   ├── 03_incident_response_and_playbooks.md
-│   ├── 04_recruiter_notes.md
-│   └── 05_image_attribution.md
+│   ├── 01-lab-walkthrough.md
+│   ├── 02-detection-and-hunting.md
+│   ├── 03-incident-response-and-playbooks.md
+│   └── 04-recruiter-notes.md
 ├── kql/
-│   ├── 01_failed_logons_by_ip.kql
-│   ├── 02_new_user_followed_by_role_assignment.kql
-│   ├── 03_disabled_accounts_signins.kql
-│   └── 04_watchlist_allowlist_example.kql
+│   ├── 01-failed-signins-by-source-ip.kql
+│   ├── 02-disabled-account-signin-attempts.kql
+│   ├── 03-new-user-followed-by-role-assignment.kql
+│   └── 04-watchlist-allowlist-example.kql
 ├── reports/
 │   └── sample-incident-summary.md
 └── watchlists/
@@ -642,12 +706,19 @@ microsoft-sentinel-portfolio-project/
 
 ---
 
+# References
+
+- Microsoft Sentinel documentation:  
+  https://learn.microsoft.com/en-us/azure/sentinel/
+
+- Microsoft Sentinel training lab:  
+  https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Training/Azure-Sentinel-Training-Lab
+
+- Kusto Query Language documentation:  
+  https://learn.microsoft.com/en-us/kusto/query/
 
 ---
 
-## References
+# Disclaimer
 
-- Video inspiration: `https://www.youtube.com/watch?v=NJlaqBaqahc`
-- Microsoft Sentinel official documentation: `https://learn.microsoft.com/en-us/azure/sentinel/`
-- Microsoft Sentinel training lab content: `https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Training/Azure-Sentinel-Training-Lab`
-- Image attribution notes: `docs/05_image_attribution.md`
+This is a personal home lab project created for learning and portfolio purposes. All screenshots, incidents, users, IP addresses, and security events are simulated, sanitized, or sample lab data. No real employer, client, or production security data is included.
