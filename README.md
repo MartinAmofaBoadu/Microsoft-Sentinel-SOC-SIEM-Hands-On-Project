@@ -57,7 +57,7 @@ This is the main Sentinel workspace view. The top row shows open incidents (14),
 
 ### Incident Queue
 
-![Incident Queue](assets/images/incident-queue.svg)
+![Incident Queue](https://github.com/MartinAmofaBoadu/incident-queue/blob/main/README.md)
 
 The incident queue filtered to Active and New status, sorted by last-updated time. The right panel shows the detail view for incident #SOC-2024-0047 (suspicious sign-in from unknown IP) — severity badge, MITRE tactic tag, affected entities with watchlist context, investigation tabs, and my analyst note at the bottom. One thing I learned: severity is set by the analytics rule that fired, not by the actual risk level of the activity. A High-severity alert still needs to be validated. Some of mine were false positives on early rule versions before I tuned the thresholds.
 
