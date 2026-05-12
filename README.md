@@ -73,7 +73,7 @@ A custom workbook built to give a high-level SOC health view over 7 days. The KP
 
 ### Logic App Playbook
 
-![Logic App Playbook](assets/images/playbook-flow.svg)
+![Logic App Playbook](https://github.com/MartinAmofaBoadu/playbook-flow/blob/main/README.md)
 
 The Logic App playbook triggered on Sentinel incident creation. The flow: parse incident entities → notify the SOC Teams channel → send an approval email to the on-call analyst → if approved, disable the Azure AD account and update the incident → if rejected or timed out (4 hours), add a comment and leave the incident open for manual review. The run history panel on the right shows recent executions including one marked "Failed" — that was me intentionally testing the 4-hour timeout to verify it handled the no-response case correctly (it added the timeout comment to the incident and left it open as expected).
 
