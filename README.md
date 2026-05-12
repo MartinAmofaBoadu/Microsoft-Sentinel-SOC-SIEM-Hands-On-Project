@@ -49,7 +49,7 @@ I looked at Splunk and IBM QRadar as alternatives but decided to focus on one pl
 
 ### Sentinel Overview Dashboard
 
-![Sentinel Overview Dashboard](assets/images/sentinel-overview.svg)
+![Sentinel Overview Dashboard]([assets/images/sentinel-overview.svg](https://github.com/MartinAmofaBoadu/sentinel-overview/blob/main/README.md))
 
 This is the main Sentinel workspace view. The top row shows open incidents (14), active alerts (38), anomalies (7), data ingested (2.4 GB), and active connectors (9 of 12). The bar chart below breaks out incident volume by severity over 7 days — High in red, Medium in orange, Low in blue. The MITRE ATT&CK heatmap in the lower left shows which tactic areas the current analytics rules cover; lighter cells showed me where I had little or no detection logic, which was useful for understanding coverage gaps. Connector health is on the lower right — the Office 365 connector showed a Warning during my lab window because a misconfigured OAuth permission caused a 38-minute gap in log delivery.
 
