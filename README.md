@@ -49,7 +49,7 @@ I looked at Splunk and IBM QRadar as alternatives but decided to focus on one pl
 
 ### Sentinel Overview Dashboard
 
-![Sentinel Overview Dashboard]([https://github.com/MartinAmofaBoadu/sentinel-overview)
+![Sentinel Overview Dashboard](https://github.com/MartinAmofaBoadu/sentinel-overview)
 
 This is the main Sentinel workspace view. The top row shows open incidents (14), active alerts (38), anomalies (7), data ingested (2.4 GB), and active connectors (9 of 12). The bar chart below breaks out incident volume by severity over 7 days — High in red, Medium in orange, Low in blue. The MITRE ATT&CK heatmap in the lower left shows which tactic areas the current analytics rules cover; lighter cells showed me where I had little or no detection logic, which was useful for understanding coverage gaps. Connector health is on the lower right — the Office 365 connector showed a Warning during my lab window because a misconfigured OAuth permission caused a 38-minute gap in log delivery.
 
@@ -65,7 +65,7 @@ The incident queue filtered to Active and New status, sorted by last-updated tim
 
 ### Workbook / Reporting View
 
-![Workbook View](assets/images/workbook-reporting.svg)
+![Workbook View](https://github.com/MartinAmofaBoadu/workbook-reporting)
 
 A custom workbook built to give a high-level SOC health view over 7 days. The KPI tiles show total incidents (58), mean time to respond (4.2h, down 18% week-over-week), failed sign-ins in the last 24 hours (342), disabled-account attempts over 7 days (27), and the incident closure rate (76%). The line chart shows failed sign-in trends across the week. The donut chart breaks down incidents by severity. The lower-left table shows the top source IPs by failed-login volume with watchlist enrichment inline — so you can immediately see whether a high-volume IP is a known threat, suspicious, or not listed anywhere.
 
