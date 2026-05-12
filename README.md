@@ -13,7 +13,7 @@
 
 This is a personal SOC home lab I built to get actual hands-on experience with Microsoft Sentinel — not just reading about it, but working through it the way a real analyst would.
 
-I've been self-studying cybersecurity for about a year (CompTIA Security+ done, currently studying for SC-200 and working toward CySA+), and I kept feeling like my knowledge was very theoretical. I could explain what a SIEM does but I'd never actually sat inside one and investigated something. That's what pushed me to build this.
+I've been passed my cybersecurity few days ago (CompTIA Security+ done, currently studying for SC-200 and working toward CySA+), and I kept feeling like my knowledge was very theoretical. I could explain what a SIEM does but I'd never actually sat inside one and investigated something. That's what pushed me to build this.
 
 The lab covers the full SOC analyst workflow: getting data into Sentinel, writing KQL queries to detect suspicious authentication activity, triaging and documenting incidents, enriching investigations with watchlists, building a workbook to track SOC metrics, and designing a Logic App playbook for automated response with analyst approval. I spent about three weeks building and documenting this, with a lot of trial and error along the way.
 
