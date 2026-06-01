@@ -1,4 +1,4 @@
-[README_rewritten_original.md](https://github.com/user-attachments/files/28477245/README_rewritten_original.md)
+
 # Microsoft Sentinel SOC Lab — SIEM Detection, Investigation & SOAR Portfolio
 
 ![Platform](https://img.shields.io/badge/Platform-Microsoft%20Sentinel-0078D4?logo=microsoftazure&logoColor=white)
